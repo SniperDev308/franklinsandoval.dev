@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#080b0d" />
+  <meta name="description" content="Franklin Digital Lab — showroom personal de ingeniería, IA, automatización, digital twins y manufactura 3D." />
+  <title>Franklin Digital Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Inicio Franklin Digital Lab">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="brand-dot"></span>
+          <span class="brand-f">F</span>
+        </span>
+        <span class="brand-copy">
+          <strong>FRANKLIN</strong>
+          <small>DIGITAL LAB</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Principal">
+        <a class="active" href="#top">HOME</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#lab">LAB</a>
+        <a href="#experiments">EXPERIMENTS</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+
+      <div class="top-actions">
+        <button class="status-pill" type="button" aria-label="Estado del laboratorio">
+          <span class="status-dot"></span>
+          LAB ONLINE
+        </button>
+        <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero section-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">FRANKLIN SANDOVAL</p>
+          <h1>FRANKLIN</h1>
+          <p class="motto">SEMPRE IN ITINERE.</p>
+          <div class="hero-lines">
+            <p>Explorando. Construyendo. Aprendiendo.</p>
+            <p>Sistemas que conectan ideas con el mundo real.</p>
+            <p>Mi universo en constante evolución.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">ENTRA A MI UNIVERSO <span>→</span></a>
+            <a class="scroll-link" href="#projects">SCROLL TO DISCOVER <span>⌄</span></a>
+          </div>
+          <div class="socials" aria-label="Redes sociales">
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="GitHub">GH</a>
+            <a href="#" aria-label="YouTube">▶</a>
+            <a href="mailto:hello@franklinsandoval.dev" aria-label="Email">✉</a>
+          </div>
+        </div>
+
+        <div class="hero-visual panel" id="lab">
+          <img src="assets/reference-mockup.png" alt="Vista conceptual del Franklin Digital Lab" />
+          <div class="visual-scrim"></div>
+          <div class="metric m1"><span>TOTAL POWER</span><strong>30 MW</strong><small>IT POWER 28 MW</small></div>
+          <div class="metric m2"><span>RACKS</span><strong>196</strong></div>
+          <div class="metric m3"><span>FCA</span><strong>28</strong></div>
+          <div class="metric m4"><span>CDU</span><strong>28</strong></div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects-section">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">FEATURED</span>
+            <h2>PROJECTS</h2>
+          </div>
+          <a href="#all-projects">VIEW ALL PROJECTS →</a>
+        </div>
+
+        <div class="project-grid" id="all-projects">
+          <article class="project-card featured">
+            <div class="card-badge"><span class="status-dot"></span> LIVE</div>
+            <div class="card-visual twin-visual">
+              <div class="mini-rack-grid" aria-hidden="true"></div>
+            </div>
+            <div class="card-body">
+              <h3>DC DIGITAL TWIN</h3>
+              <p class="accent-copy">BMS & INTEGRATION SIMULATOR</p>
+              <p>30 MW Wing Simulator con BMS, SCADA y protocol integration.</p>
+              <a href="dc-simulator.html">LAUNCH SIMULATOR <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" id="experiments">
+            <div class="card-visual orion-visual"><div class="orbit"><i></i><i></i><i></i></div><strong>ORION</strong></div>
+            <div class="card-body">
+              <h3>ORION</h3>
+              <p class="accent-copy">AI ECOSYSTEM</p>
+              <p>Plataforma multiagente para automatización, análisis, monitoreo y operaciones inteligentes.</p>
+              <a href="#">ENTER ORION <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="card-visual automation-visual"><div class="robot-arm">⚙</div></div>
+            <div class="card-body">
+              <h3>AUTOMATION LAB</h3>
+              <p class="accent-copy">SCADA / PLC / CONTROLS</p>
+              <p>Laboratorio de automatización industrial, control, PLCs, SCADA y protocolos.</p>
+              <a href="#">OPEN LAB <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="card-visual manufacturing-visual"><div class="mesh-object"></div></div>
+            <div class="card-body">
+              <h3>3D & MANUFACTURING</h3>
+              <p class="accent-copy">ADDITIVE SYSTEMS</p>
+              <p>Diseño, impresión 3D, prototipado y soluciones de manufactura.</p>
+              <a href="#">VIEW PROJECTS <span>→</span></a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="metrics-strip" aria-label="Métricas del laboratorio">
+        <div><span class="metric-icon">ϟ</span><strong>30 MW</strong><small>TOTAL CAPACITY</small></div>
+        <div><span class="metric-icon">▥</span><strong>196</strong><small>RACKS SIMULATED</small></div>
+        <div><span class="metric-icon">◉</span><strong>28</strong><small>CDU UNITS</small></div>
+        <div><span class="metric-icon">✣</span><strong>28</strong><small>FCA UNITS</small></div>
+        <div><span class="metric-icon">♨</span><strong>24/7</strong><small>LAB ONLINE</small></div>
+      </section>
+
+      <section class="about-grid" id="about">
+        <div>
+          <span class="section-kicker">ABOUT</span>
+          <h2>BUILDING SYSTEMS THAT MOVE IDEAS INTO THE REAL WORLD.</h2>
+        </div>
+        <p>Este sitio funciona como showroom vivo de proyectos personales en ingeniería, IA, automatización, digital twins, infraestructura crítica y manufactura. El CV existe, pero aquí mandan los sistemas.</p>
+      </section>
+    </main>
+
+    <footer id="contact" class="footer">
+      <div>© 2026 FRANKLIN DIGITAL LAB</div>
+      <div class="footer-links"><a href="#">PRIVACY</a><a href="#">TERMS</a><span><i class="status-dot tiny"></i> STATUS</span></div>
+      <div class="footer-motto">HECHO CON PROPÓSITO · DISEÑADO PARA CONSTRUIR · <strong>SEMPRE IN ITINERE.</strong></div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
