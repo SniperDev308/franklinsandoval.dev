@@ -1,112 +1,12 @@
-const menuBtn = document.querySelector('.menu-btn');
-const nav = document.querySelector('.nav');
-if (menuBtn && nav) {
-  menuBtn.addEventListener('click', () => {
-    const open = menuBtn.getAttribute('aria-expanded') === 'true';
-    menuBtn.setAttribute('aria-expanded', String(!open));
-    nav.style.display = open ? 'none' : 'flex';
-    if (!open) {
-      nav.style.position = 'absolute';
-      nav.style.top = '86px';
-      nav.style.left = '0';
-      nav.style.right = '0';
-      nav.style.flexDirection = 'column';
-      nav.style.gap = '0';
-      nav.style.padding = '16px 24px 22px';
-      nav.style.background = 'rgba(7,9,10,.98)';
-      nav.style.borderBottom = '1px solid #242b2f';
-    }
-  });
-}
-
-document.querySelectorAll('.nav a').forEach((link) => {
-  link.addEventListener('click', () => {
-    document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
-    link.classList.add('active');
-  });
-});
-
-// Keep the English HTML usable before JavaScript loads.
-(()=>{
-const translations = {
-  "HOME": "INICIO",
-  "PROJECTS": "PROYECTOS",
-  "DC SIMULATOR": "SIMULADOR DC",
-  "LAB": "LABORATORIO",
-  "EXPERIMENTS": "EXPERIMENTOS",
-  "ABOUT": "SOBRE MÍ",
-  "CONTACT": "CONTACTO",
-  "LAB ONLINE": "LABORATORIO EN LÍNEA",
-  "Exploring. Building. Learning.": "Explorando. Construyendo. Aprendiendo.",
-  "Systems that connect ideas to the real world.": "Sistemas que conectan ideas con el mundo real.",
-  "My constantly evolving universe.": "Mi universo en constante evolución.",
-  "ENTER MY UNIVERSE": "ENTRA A MI UNIVERSO",
-  "SCROLL TO DISCOVER": "DESPLÁZATE PARA EXPLORAR",
-  "TOTAL POWER": "POTENCIA TOTAL",
-  "IT POWER 28 MW": "POTENCIA IT 28 MW",
-  "RACKS": "RACKS",
-  "FEATURED": "DESTACADOS",
-  "VIEW ALL PROJECTS →": "VER TODOS LOS PROYECTOS →",
-  "PRIVATE PREVIEW": "VISTA PREVIA PRIVADA",
-  "DC DIGITAL TWIN": "GEMELO DIGITAL DC",
-  "BMS & INTEGRATION SIMULATOR": "SIMULADOR BMS E INTEGRACIÓN",
-  "Parametric simulator for IT load, electrical distribution and cooling. Available in English and Spanish.": "Simulador paramétrico de carga IT, distribución eléctrica y refrigeración. Interfaz en español e inglés.",
-  "OPEN SIMULATOR": "ABRIR SIMULADOR",
-  "AI ECOSYSTEM": "ECOSISTEMA DE IA",
-  "Multi-agent platform for automation, analysis, monitoring and intelligent operations.": "Plataforma multiagente para automatización, análisis, monitoreo y operaciones inteligentes.",
-  "ENTER ORION": "ENTRAR A ORION",
-  "AUTOMATION LAB": "LABORATORIO DE AUTOMATIZACIÓN",
-  "SCADA / PLC / CONTROLS": "SCADA / PLC / CONTROL",
-  "Industrial automation lab for controls, PLCs, SCADA and protocols.": "Laboratorio de automatización industrial, control, PLCs, SCADA y protocolos.",
-  "OPEN LAB": "ABRIR LABORATORIO",
-  "3D & MANUFACTURING": "3D Y MANUFACTURA",
-  "ADDITIVE SYSTEMS": "SISTEMAS ADITIVOS",
-  "Design, 3D printing, prototyping and manufacturing solutions.": "Diseño, impresión 3D, prototipado y soluciones de manufactura.",
-  "VIEW PROJECTS": "VER PROYECTOS",
-  "TOTAL CAPACITY": "CAPACIDAD TOTAL",
-  "RACKS SIMULATED": "RACKS SIMULADOS",
-  "CDU UNITS": "UNIDADES CDU",
-  "FCA UNITS": "UNIDADES FCA",
-  "BUILDING SYSTEMS THAT MOVE IDEAS INTO THE REAL WORLD.": "CONSTRUYENDO SISTEMAS QUE LLEVAN LAS IDEAS AL MUNDO REAL.",
-  "This site is a living showcase of personal projects in engineering, AI, automation, digital twins, critical infrastructure and manufacturing. There is a résumé, but here the systems speak for themselves.": "Este sitio funciona como showroom vivo de proyectos personales en ingeniería, IA, automatización, digital twins, infraestructura crítica y manufactura. El CV existe, pero aquí mandan los sistemas.",
-  "PRIVACY": "PRIVACIDAD",
-  "TERMS": "TÉRMINOS",
-  "STATUS": "ESTADO",
-  "MADE WITH PURPOSE · DESIGNED TO BUILD ·": "HECHO CON PROPÓSITO · DISEÑADO PARA CONSTRUIR ·",
-  "Franklin Digital Lab home": "Inicio Franklin Digital Lab",
-  "Main navigation": "Principal",
-  "Laboratory status": "Estado del laboratorio",
-  "Open menu": "Abrir menú",
-  "Social media": "Redes sociales",
-  "Concept view of Franklin Digital Lab": "Vista conceptual del Franklin Digital Lab",
-  "Laboratory metrics": "Métricas del laboratorio",
-  "Email": "Correo electrónico",
-  "Franklin Digital Lab — a personal showcase of engineering, AI, automation, digital twins and 3D manufacturing.": "Franklin Digital Lab — showroom personal de ingeniería, IA, automatización, digital twins y manufactura 3D."
-};
-const entries=[];
-const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
-while(walker.nextNode()){
-  const node=walker.currentNode;
-  if(node.parentElement.closest('script,style,.language-switch')) continue;
-  const key=node.textContent.trim();
-  if(Object.hasOwn(translations,key)) entries.push({node,original:node.textContent,key});
-}
-const attributes=[];
-document.querySelectorAll('[aria-label],[alt],meta[name="description"]').forEach(element=>{
-  for(const name of ['aria-label','alt','content']){
-    const value=element.getAttribute(name);
-    if(value && Object.hasOwn(translations,value)) attributes.push({element,name,value});
-  }
-});
+const messages = {"work": {"en": "Selected work", "es": "Proyectos"}, "about": {"en": "About", "es": "Sobre mí"}, "contact": {"en": "Contact", "es": "Contacto"}, "eyebrow": {"en": "Software · Automation · Digital twins", "es": "Software · Automatización · Gemelos digitales"}, "title": {"en": "Complex systems.\nClear possibilities.", "es": "Sistemas complejos.\nPosibilidades claras."}, "intro": {"en": "I build digital tools to explore infrastructure, connect information and make technical ideas tangible.", "es": "Desarrollo herramientas digitales para explorar infraestructura, conectar información y dar forma a ideas técnicas."}, "talk": {"en": "Let’s discuss your project ↗", "es": "Hablemos de tu proyecto ↗"}, "explore": {"en": "Explore my work ↓", "es": "Explora mi trabajo ↓"}, "selected": {"en": "01 / Selected work", "es": "01 / Proyecto destacado"}, "built": {"en": "An idea, made interactive.", "es": "Una idea, hecha interactiva."}, "private": {"en": "Private preview", "es": "Vista previa privada"}, "desc": {"en": "Explore how IT load, electrical distribution and cooling work together. A configurable data center simulator with detailed equipment views.", "es": "Explora cómo interactúan la carga IT, la distribución eléctrica y la refrigeración. Un simulador configurable de centros de datos con vistas detalladas de equipos."}, "f1": {"en": "Equipment-based configuration", "es": "Configuración por equipos"}, "f2": {"en": "Power and cooling diagrams", "es": "Diagramas eléctricos y de refrigeración"}, "f3": {"en": "English and Spanish interface", "es": "Interfaz en inglés y español"}, "open": {"en": "Open simulator ↗", "es": "Abrir simulador ↗"}, "access": {"en": "Access is limited to authorized email addresses.", "es": "Acceso limitado a correos autorizados."}, "focus": {"en": "02 / Approach", "es": "02 / Enfoque"}, "heading": {"en": "From technical questions\nto practical tools.", "es": "De preguntas técnicas\na herramientas prácticas."}, "bio": {"en": "My work brings together software, automation and infrastructure. This lab is where I turn ideas into working prototypes and explore how systems behave.", "es": "Mi trabajo conecta software, automatización e infraestructura. En este laboratorio convierto ideas en prototipos funcionales y exploro el comportamiento de los sistemas."}, "topics": {"en": "Current areas of exploration", "es": "Áreas de exploración"}, "a": {"en": "Digital twins", "es": "Gemelos digitales"}, "b": {"en": "Industrial automation", "es": "Automatización industrial"}, "c": {"en": "AI tools", "es": "Herramientas de IA"}, "d": {"en": "3D prototyping", "es": "Prototipado 3D"}, "next": {"en": "03 / Let’s connect", "es": "03 / Conversemos"}, "question": {"en": "What are you working on?", "es": "¿En qué estás trabajando?"}, "invitation": {"en": "Tell me about your project, your technical challenge or the idea you want to explore.", "es": "Cuéntame sobre tu proyecto, tu reto técnico o la idea que quieres explorar."}};
 function setLanguage(language){
-  document.documentElement.lang=language;
-  for(const {node,original,key} of entries) node.textContent=language==='es'?original.replace(key,translations[key]):original;
-  for(const {element,name,value} of attributes) element.setAttribute(name,language==='es'?translations[value]:value);
-  document.querySelectorAll('[data-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.language===language)));
-  try{localStorage.setItem('franklin-site-language',language)}catch{}
+ const lang=language==='es'?'es':'en';
+ document.documentElement.lang=lang;
+ document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=messages[el.dataset.i18n][lang]});
+ document.querySelectorAll('[data-language]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.language===lang)));
+ document.querySelector('meta[name="description"]').content=lang==='es'?'Franklin Sandoval — software, automatización y gemelos digitales. Explora el simulador DC + BMS.':'Franklin Sandoval — software, automation and digital twins. Explore the DC + BMS Simulator.';
+ try{localStorage.setItem('franklin-site-language',lang)}catch{}
 }
-let initial='en';
-try{if(localStorage.getItem('franklin-site-language')==='es')initial='es'}catch{}
-document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>setLanguage(button.dataset.language)));
-setLanguage(initial);
-})();
+let language='en';try{language=localStorage.getItem('franklin-site-language')||'en'}catch{}
+setLanguage(language);
+document.querySelectorAll('[data-language]').forEach(el=>el.addEventListener('click',()=>setLanguage(el.dataset.language)));
