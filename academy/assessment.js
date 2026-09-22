@@ -1,0 +1,8 @@
+const KEY='fta-day0-v1';const form=document.getElementById('assessmentForm');const fields=[...form.querySelectorAll('textarea')];const answered=document.getElementById('answered');const saveState=document.getElementById('saveState');
+function load(){try{const d=JSON.parse(localStorage.getItem(KEY)||'{}');fields.forEach(f=>{if(d[f.name])f.value=d[f.name]});}catch{} update();}
+function save(){const d={};fields.forEach(f=>d[f.name]=f.value);try{localStorage.setItem(KEY,JSON.stringify(d));localStorage.setItem('fta-day0-updated',new Date().toISOString());saveState.textContent='Draft saved locally';}catch{saveState.textContent='Unable to save locally';}update();}
+function update(){const n=fields.filter(f=>f.value.trim()).length;answered.textContent=n+' / 26';}
+let timer;fields.forEach(f=>f.addEventListener('input',()=>{saveState.textContent='Saving…';clearTimeout(timer);timer=setTimeout(save,250)}));
+document.getElementById('clearBtn').addEventListener('click',()=>{if(confirm('Clear all Day 0 answers on this device?')){fields.forEach(f=>f.value='');localStorage.removeItem(KEY);localStorage.removeItem('fta-day0-complete');update();saveState.textContent='Draft cleared';}});
+form.addEventListener('submit',e=>{e.preventDefault();save();const n=fields.filter(f=>f.value.trim()).length;if(n<26&&!confirm('You answered '+n+' of 26 questions. Complete the assessment anyway?'))return;localStorage.setItem('fta-day0-complete','true');localStorage.setItem('fta-program-progress','5');document.getElementById('completeModal').hidden=false;});
+load();
