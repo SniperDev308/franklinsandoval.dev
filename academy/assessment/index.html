@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#080b0d"><title>Day 0 Assessment | Franklin Technical Academy</title><link rel="stylesheet" href="/academy/styles.css"><link rel="stylesheet" href="/academy/assessment.css"></head><body>
+<header class="topbar"><a class="brand" href="/academy/">Franklin Sandoval<span>Technical Academy</span></a><div class="status"><i></i> DAY 0 / DIAGNOSTIC</div></header>
+<main class="assessment-wrap"><div class="assessment-head"><div><p class="kicker">FT-D0-001</p><h1>Technical Baseline</h1><p class="lead">Answer from memory. “I don't remember” is a valid diagnostic answer. Your work is saved locally on this device as you type.</p></div><div class="assessment-progress"><strong id="answered">0 / 26</strong><span>ANSWERED</span></div></div>
+<form id="assessmentForm">
+<section class="assessment-section"><p class="kicker">A / NETWORKING</p><h2>Core network reasoning</h2>
+<div class="q"><label>1. A PC is 192.168.10.25/24, gateway 192.168.10.1. Can it communicate directly, without a router, with 192.168.20.25/24? Why?</label><textarea name="q1"></textarea></div>
+<div class="q"><label>2. Difference between a Layer 2 switch and a router / Layer 3 switch?</label><textarea name="q2"></textarea></div>
+<div class="q"><label>3. What happens from entering server.company.local until the computer begins a TCP connection?</label><textarea name="q3"></textarea></div>
+<div class="q"><label>4. What is ARP used for?</label><textarea name="q4"></textarea></div>
+<div class="q"><label>5. Difference between an access port and an 802.1Q trunk?</label><textarea name="q5"></textarea></div>
+<div class="q"><label>6. VLAN 10 and VLAN 20 are on the same switch. What is needed for hosts in them to communicate?</label><textarea name="q6"></textarea></div>
+<div class="q"><label>7. What problem does STP prevent?</label><textarea name="q7"></textarea></div>
+<div class="q"><label>8. For 192.168.50.64/27 give network, broadcast, first host, last host and usable host count.</label><textarea name="q8"></textarea></div>
+<div class="q"><label>9. Practical difference between TCP and UDP. Give one protocol example for each.</label><textarea name="q9"></textarea></div>
+<div class="q"><label>10. Ping to 10.20.30.15 works, but https://10.20.30.15 does not. What do you investigate, and in what order?</label><textarea name="q10"></textarea></div></section>
+<section class="assessment-section"><p class="kicker">B / LINUX</p><h2>Support fundamentals</h2>
+<div class="q"><label>11. Command to see your IP address in Linux?</label><textarea name="q11"></textarea></div><div class="q"><label>12. How would you find files under /var/log that contain the word “error”?</label><textarea name="q12"></textarea></div><div class="q"><label>13. What are grep, find, systemctl and journalctl used for?</label><textarea name="q13"></textarea></div><div class="q"><label>14. An application should listen on TCP 5432. How do you verify a process is actually listening?</label><textarea name="q14"></textarea></div><div class="q"><label>15. Explain chmod, chown and sudo.</label><textarea name="q15"></textarea></div></section>
+<section class="assessment-section"><p class="kicker">C / SQL + POSTGRESQL</p><h2>Database support</h2>
+<div class="q"><label>16. Write SQL to show all rows from servers where status is DOWN.</label><textarea name="q16" spellcheck="false"></textarea></div><div class="q"><label>17. What is a primary key?</label><textarea name="q17"></textarea></div><div class="q"><label>18. What does a JOIN do?</label><textarea name="q18"></textarea></div><div class="q"><label>19. Difference between SELECT, UPDATE and DELETE?</label><textarea name="q19"></textarea></div><div class="q"><label>20. Application reports “database connection refused.” What do you check before assuming PostgreSQL is damaged?</label><textarea name="q20"></textarea></div></section>
+<section class="assessment-section"><p class="kicker">D / BMS + BACNET</p><h2>Controls reasoning</h2>
+<div class="q"><label>21. AHU supply temperature stays exactly 72.0°F for two hours while other values change. What do you suspect and how do you start?</label><textarea name="q21"></textarea></div><div class="q"><label>22. Difference between an alarm, trend and point?</label><textarea name="q22"></textarea></div><div class="q"><label>23. What do you currently understand BACnet to be?</label><textarea name="q23"></textarea></div><div class="q"><label>24. What do AI, AO, BI and BO mean in a BMS point list?</label><textarea name="q24"></textarea></div><div class="q"><label>25. BMS loses communication with one CDU while the other 27 remain online. What is your initial reasoning?</label><textarea name="q25"></textarea></div></section>
+<section class="assessment-section incident-assessment"><p class="kicker">E / TROUBLESHOOTING</p><h2>Incident FT-001</h2><pre>CLIENT  Windows · 10.10.20.44/24 · GW 10.10.20.1
+SERVER  Ubuntu · 10.10.30.50/24 · GW 10.10.30.1
+APP     HTTPS / TCP 443
+DNS     Resolves correctly
+PING    Successful
+BROWSER Connection timeout
+SCOPE   Other users affected</pre>
+<div class="q"><label>26. You are the Technical Support Engineer. Describe your process as Hypothesis → Test → Expected Result → Next Step.</label><textarea name="q26" class="long"></textarea></div></section>
+<div class="form-actions"><span id="saveState">Draft saved locally</span><button type="button" class="secondary" id="clearBtn">Clear draft</button><button type="submit">Complete Assessment →</button></div>
+</form></main>
+<div class="modal" id="completeModal" hidden><div class="modal-card"><p class="kicker">DAY 0 COMPLETE</p><h2>Baseline captured.</h2><p>Your answers are saved on this device. Return to the Academy dashboard to continue with review and Skills Matrix scoring.</p><a class="button-link" href="/academy/">Return to Dashboard →</a></div></div>
+<script src="/academy/assessment.js"></script></body></html>
