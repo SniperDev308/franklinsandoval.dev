@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#080b0d"><title>Technical Operations Capstone | Franklin Technical Academy</title><link rel="stylesheet" href="/academy/styles.css"><link rel="stylesheet" href="/academy/lesson.css"></head><body>
+<header class="topbar"><a class="brand" href="/academy/">Franklin Sandoval<span>Technical Academy</span></a><div class="status"><i></i> WEEK 09 / INTEGRATION</div></header>
+<div class="lesson-shell"><aside class="lesson-nav"><p class="kicker">CAPSTONE</p><a href="#method">01 Method</a><a href="#inc1">02 Incident A</a><a href="#inc2">03 Incident B</a><a href="#inc3">04 Incident C</a><a href="#final">05 Final Challenge</a><a href="#check">06 Readiness Check</a><a href="/academy/path/">← Learning Path</a></aside>
+<main class="lesson-main"><section class="lesson-hero"><p class="kicker">W09 · FINAL INTEGRATION</p><h1>Technical<br>Operations Capstone</h1><p class="lead">No chapter tells you which technology is broken. Diagnose the system from evidence.</p><div class="objective"><b>MISSION OBJECTIVE</b><span>Integrate networking, Linux, PostgreSQL, BACnet/IP, BMS and cloud/identity reasoning into an evidence-driven incident workflow.</span></div></section>
+<section id="method" class="lesson-card"><p class="kicker">01 / OPERATING METHOD</p><h2>Unknown fault domain</h2><div class="flow"><span>Observe</span><b>→</b><span>Scope</span><b>→</b><span>Hypothesize</span><b>→</b><span>Test</span><b>→</b><span>Narrow</span><b>→</b><span>Act</span></div><div class="callout"><b>CAPSTONE RULE</b><p>Do not start with a favorite technology. Start with the symptom, blast radius, timeline and smallest discriminating test.</p></div></section>
+<section id="inc1" class="lesson-card"><p class="kicker">02 / INCIDENT OPS-101</p><h2>Dashboard unavailable after maintenance</h2><pre>USER REPORT    Operations dashboard unavailable
+DNS            Resolves correctly
+PING           Application host reachable
+HTTPS 443      Successful
+APP PAGE       HTTP 500
+LINUX HOST     Running
+POSTGRESQL     Remote DB dependency
+RECENT CHANGE  DB host rebooted during maintenance</pre><label>Determine where the evidence moves the fault domain. Write: Scope → Hypotheses → First 3 tests → Expected results → Next step.</label><textarea id="incidentAnswer" placeholder="A successful TCP 443 test proves something important. What does HTTP 500 change?"></textarea></section>
+<section id="inc2" class="lesson-card"><p class="kicker">03 / INCIDENT OPS-102</p><h2>BMS loses remote controllers</h2><pre>BMS UI          Available
+LOCAL BACNET    Devices visible
+REMOTE SUBNET   14 devices missing
+OTHER IT APPS   Normal
+ROUTER CHANGE   Completed 35 min ago
+CONTROLLERS     Reported powered
+LOCAL POINTS    Updating</pre><p>Build the investigation on paper: identify the common boundary, the networking tests, and where BACnet broadcast management enters. Do not assume 14 simultaneous controller failures.</p></section>
+<section id="inc3" class="lesson-card"><p class="kicker">04 / INCIDENT OPS-103</p><h2>Cooling alarm with conflicting evidence</h2><pre>AHU-07 SAT      78.9°F
+SETPOINT        55.0°F
+FAN             ON
+VALVE CMD       100%
+VALVE FEEDBACK  12%
+TREND           SAT rising for 18 min
+OTHER AHUs      Normal
+NETWORK         No communication alarms</pre><p>Separate command from feedback. Decide what the BMS evidence supports, what it does not prove, and what physical verification should happen next under site procedures.</p></section>
+<section id="final" class="lesson-card lab-card"><p class="kicker">05 / FINAL CHALLENGE</p><h2>Build your incident dossier</h2><ol><li>Choose OPS-101, OPS-102 or OPS-103.</li><li>Write a one-sentence problem statement without naming an unproven cause.</li><li>Define scope and blast radius.</li><li>Create at least three ranked hypotheses based on evidence.</li><li>For each hypothesis, define a discriminating test and expected result.</li><li>Identify the safest next operational action.</li><li>Write a concise escalation handoff with evidence, timestamps and unresolved questions.</li><li>Explain the incident verbally as if answering a technical interview question.</li></ol><label class="checkline"><input type="checkbox" id="labDone"> I completed a full incident dossier and can defend my reasoning step by step.</label></section>
+<section id="check" class="lesson-card"><p class="kicker">06 / READINESS CHECK</p><h2>Integration, not memorization</h2><div id="quiz">
+<div class="quiz-q"><b>1. DNS, ping and TCP 443 succeed, but the application returns HTTP 500. Where should investigation increasingly focus?</b><label><input type="radio" name="a1" value="app"> Application and its server-side dependencies</label><label><input type="radio" name="a1" value="dns"> DNS only</label><label><input type="radio" name="a1" value="cable"> Client Ethernet cable only</label></div>
+<div class="quiz-q"><b>2. Fourteen remote BACnet devices disappear together after a router change while local devices remain normal. What is the strongest clue?</b><label><input type="radio" name="a2" value="boundary"> Shared routed/BACnet communication boundary</label><label><input type="radio" name="a2" value="fourteen"> Fourteen unrelated controller failures</label><label><input type="radio" name="a2" value="sensor"> One bad temperature sensor</label></div>
+<div class="quiz-q"><b>3. Valve command is 100% but feedback is 12% while temperature rises. What is the correct interpretation?</b><label><input type="radio" name="a3" value="mismatch"> There is a command/response mismatch requiring further controls/physical verification</label><label><input type="radio" name="a3" value="proof"> The valve is proven fully open</label><label><input type="radio" name="a3" value="network"> The entire network is down</label></div>
+<button id="gradeBtn" type="button">Grade Check →</button><div id="quizResult"></div></div></section>
+<section class="lesson-complete"><div><p class="kicker">PROGRAM GATE</p><h2 id="moduleStatus">Capstone in progress</h2><p id="moduleHint">Complete the incident dossier and pass the readiness check.</p></div><button id="completeBtn" type="button" disabled>Complete Capstone →</button></section>
+</main></div><script>window.FTA_MODULE={key:"fta-w9m1-v1",completeKey:"fta-w9m1-complete",progress:"100",answers:{a1:"app",a2:"boundary",a3:"mismatch"}};</script><script src="/academy/module.js"></script></body></html>
