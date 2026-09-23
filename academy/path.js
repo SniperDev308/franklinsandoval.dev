@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{let done=false;try{done=localStorage.getItem("fta-w1m1-complete")==="true"}catch{}if(done){const w=document.querySelector(".path-item.open");w.classList.add("done");w.querySelector("em").textContent="MODULE 01 COMPLETE ✓"}});
